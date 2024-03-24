@@ -238,5 +238,10 @@ namespace MARISA.NET
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void ReloadButtonClick(object sender, RoutedEventArgs e)
+        {
+            ViewReplayFilesList();
+        }
     }
 }
