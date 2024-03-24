@@ -5,6 +5,25 @@ namespace MARISA.NET
 {
     internal class ReplayFile
     {
+        private readonly static Dictionary<string, string> GameIdDictionary
+            = new()
+            {
+                { "th6", "Th06" },
+                { "th7", "Th07" },
+                { "th8", "Th08" },
+                { "th9", "Th09" },
+                { "th10", "Th10" },
+                { "th11", "Th11" },
+                { "th12", "Th12" },
+                { "th13", "Th13" },
+                { "th14", "Th14" },
+                { "th15", "Th15" },
+                { "th16", "Th16" },
+                { "th17", "Th17" },
+                { "th18", "Th18" },
+                { "th19", "Th19" }
+            };
+
         public static ObservableCollection<ReplayFileInfo> GetReplayFiles(string? gameId)
         {
             ObservableCollection<ReplayFileInfo> replayFileInfos = new();
@@ -66,7 +85,7 @@ namespace MARISA.NET
         public static string? GetGameId(string replayFile)
         {
             string replayName = Path.GetFileNameWithoutExtension(replayFile);
-            return replayName.Split('_')[0];
+            return GameIdDictionary[replayName.Split('_')[0]];
         }
     }
 }
