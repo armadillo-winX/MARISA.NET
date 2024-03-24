@@ -82,10 +82,41 @@ namespace MARISA.NET
             return $"{fileSize / 1024} KiB";
         }
 
-        public static string? GetGameId(string replayFile)
+        public static string? GetGameId(string replayFilePath)
         {
-            string replayName = Path.GetFileNameWithoutExtension(replayFile);
+            string replayName = Path.GetFileNameWithoutExtension(replayFilePath);
             return GameIdDictionary[replayName.Split('_')[0]];
+        }
+
+        public static string Import(string replayFilePath)
+        {
+            string gameId = GetGameId(replayFilePath);
+            string? replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
+            string replayName = Path.GetFileNameWithoutExtension(replayFilePath);
+            if (Directory.Exists(replayDirectory))
+            {
+                try
+                {
+                    string newReplayFile = $"{replayDirectory}\\{replayName}.rpy";
+                    int i = 0;
+                    while (File.Exists(newReplayFile))
+                    {
+                        i++;
+                        newReplayFile = $"{replayDirectory}\\{replayName}-{i}.rpy";
+                    }
+
+                    File.Move(replayFilePath, newReplayFile);
+                    return $"成功:{newReplayFile}";
+                }
+                catch (Exception ex)
+                {
+                    return $"エラー:{ex.Message}";
+                }
+            }
+            else
+            {
+                return $"インポート先ディレクトリが存在しませんでした。Game:{gameId}";
+            }
         }
     }
 }
