@@ -223,11 +223,14 @@ namespace MARISA.NET
                 {
                     foreach (string replayFile in replayFiles)
                     {
-                        ReplayFile.Import(replayFile);
+                        string message = ReplayFile.Import(replayFile);
 
                         this.Dispatcher.Invoke((Action)(() =>
-                                            ReplayFilesListBox.Items.Remove(replayFile)
-                                        ));
+                        {
+                            ReplayFilesListBox.Items.Remove(replayFile);
+                            OutputBox.Text += $"{message}\n";
+                        }
+                        ));
                     }
                 });
                 ImportButton.IsEnabled = true;
