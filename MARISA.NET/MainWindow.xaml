@@ -21,6 +21,7 @@
             <ComboBoxItem Uid="Th16" Content="東方天空璋"/>
             <ComboBoxItem Uid="Th17" Content="東方鬼形獣"/>
             <ComboBoxItem Uid="Th18" Content="東方虹龍洞"/>
+            <ComboBoxItem Uid="Th19" Content="東方獣王園"/>
         </ComboBox>
         <Label Content="リプレイファイル保存フォルダ:" HorizontalAlignment="Left" Margin="135,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="ReplayDirectoryPathBox" Margin="280,14,57,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"

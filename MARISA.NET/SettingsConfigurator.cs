@@ -23,6 +23,7 @@ namespace MARISA.NET
             _replayDirectoryPathSettings.Th16 = ReplayDirectoryPath.Th16ReplayDirectory;
             _replayDirectoryPathSettings.Th17 = ReplayDirectoryPath.Th17ReplayDirectory;
             _replayDirectoryPathSettings.Th18 = ReplayDirectoryPath.Th18ReplayDirectory;
+            _replayDirectoryPathSettings.Th19 = ReplayDirectoryPath.Th19ReplayDirectory;
 
             if (!string.IsNullOrEmpty(replayDirectoryPathSettingsFile))
             {
@@ -59,6 +60,7 @@ namespace MARISA.NET
                 ReplayDirectoryPath.Th16ReplayDirectory = _replayDirectoryPathSettings.Th16;
                 ReplayDirectoryPath.Th17ReplayDirectory = _replayDirectoryPathSettings.Th17;
                 ReplayDirectoryPath.Th18ReplayDirectory = _replayDirectoryPathSettings.Th18;
+                ReplayDirectoryPath.Th19ReplayDirectory = _replayDirectoryPathSettings.Th19;
             }
             else
             {
@@ -75,6 +77,7 @@ namespace MARISA.NET
                 ReplayDirectoryPath.Th16ReplayDirectory = string.Empty;
                 ReplayDirectoryPath.Th17ReplayDirectory = string.Empty;
                 ReplayDirectoryPath.Th18ReplayDirectory = string.Empty;
+                ReplayDirectoryPath.Th19ReplayDirectory = string.Empty;
             }
         }
 

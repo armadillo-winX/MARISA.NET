@@ -43,7 +43,8 @@ namespace MARISA.NET
                 { "Th15", 9 },
                 { "Th16", 10 },
                 { "Th17", 11 },
-                { "Th18", 12 }
+                { "Th18", 12 },
+                { "Th19", 13 }
            };
 
         public MainWindow()

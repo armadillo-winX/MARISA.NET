@@ -30,6 +30,8 @@ namespace MARISA.NET
 
         public static string? Th18ReplayDirectory { get; set; }
 
+        public static string? Th19ReplayDirectory { get; set; }
+
         public static void SetReplayDirectoryPath(string? gameId, string replayDirectoryPath)
         {
             if (!string.IsNullOrEmpty(gameId))

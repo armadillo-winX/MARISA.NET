@@ -27,5 +27,7 @@
         public static string Th17 => "Th17";
 
         public static string Th18 => "Th18";
+
+        public static string Th19 => "Th19";
     }
 }
