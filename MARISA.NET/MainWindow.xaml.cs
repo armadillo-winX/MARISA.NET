@@ -77,6 +77,8 @@ namespace MARISA.NET
                 MessageBox.Show($"メインウィンドウ設定の構成に失敗しました。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            EnableDragDrop(this);
         }
 
         private void ViewReplayFilesList()
@@ -99,6 +101,38 @@ namespace MARISA.NET
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void EnableDragDrop(Control control)
+        {
+            //ドラッグ＆ドロップを受け付けられるようにする
+            control.AllowDrop = true;
+
+            //ドラッグが開始された時のイベント処理（マウスカーソルをドラッグ中のアイコンに変更）
+            control.PreviewDragOver += (s, e) =>
+            {
+                //ファイルがドラッグされたとき、カーソルをドラッグ中のアイコンに変更し、そうでない場合は何もしない。
+                e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : e.Effects = DragDropEffects.None;
+                e.Handled = true;
+            };
+
+            //ドラッグ＆ドロップが完了した時の処理（ファイル名を取得し、ファイルの中身をTextプロパティに代入）
+            control.PreviewDrop += (s, e) =>
+            {
+                if (e.Data.GetDataPresent(DataFormats.FileDrop)) // ドロップされたものがファイルかどうか確認する。
+                {
+                    string[] paths = (string[])e.Data.GetData(DataFormats.FileDrop);
+                    //--------------------------------------------------------------------
+                    // ここに、ドラッグ＆ドロップ受付時の処理を記述する
+                    //--------------------------------------------------------------------
+                    foreach (string path in paths)
+                    {
+                        ReplayFilesListBox.Items.Add(path);
+                        MainTabControl.SelectedIndex = 1;
+                    }
+                }
+            };
+
         }
 
         private void ConfigureMainWindowSettings()
@@ -168,6 +202,40 @@ namespace MARISA.NET
             {
                 MessageBox.Show(this, $"設定の保存に失敗しました。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private async void ImportButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesListBox.Items.Count > 0)
+            {
+                string[] replayFiles = new string[ReplayFilesListBox.Items.Count];
+
+                int i = 0;
+                foreach (object replayFileItem in ReplayFilesListBox.Items)
+                {
+                    replayFiles[i] = (string)replayFileItem;
+                    i++;
+                }
+
+                ImportButton.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    foreach (string replayFile in replayFiles)
+                    {
+                        ReplayFile.Import(replayFile);
+
+                        this.Dispatcher.Invoke((Action)(() =>
+                                            ReplayFilesListBox.Items.Remove(replayFile)
+                                        ));
+                    }
+                });
+                ImportButton.IsEnabled = true;
+            }
+            else
+            {
+                MessageBox.Show(this, "インポートするリプレイファイルがありません。", "リプレイファイルのインポート",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
     }

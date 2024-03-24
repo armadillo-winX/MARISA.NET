@@ -28,7 +28,7 @@
                  MaxLines="1"/>
         <Button x:Name="BrowseButton"
                 Content="参照(_B)" Margin="0,13,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="BrowseButtonClick"/>
-        <TabControl Margin="0,41,0,0">
+        <TabControl x:Name="MainTabControl" Margin="0,41,0,0">
             <TabItem Header="リプレイファイルの管理">
                 <Grid >
                     <DataGrid x:Name="ReplayFilesDataGrid"
@@ -43,15 +43,29 @@
                                             Binding="{Binding FileSize}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="ImportButton"
-                            Content="インポート(_I)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"
-                            Width="120" Height="24"/>
                     <Button x:Name="RenameButton"
-                            Content="リネーム(_R)" HorizontalAlignment="Right" Margin="0,39,10,0" VerticalAlignment="Top"
+                            Content="リネーム(_R)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"
                             Width="120" Height="24"/>
                     <Button x:Name="DeleteButton"
-                            Content="削除(_D)" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top"
+                            Content="削除(_D)" HorizontalAlignment="Right" Margin="0,39,10,0" VerticalAlignment="Top"
                             Width="120" Height="24"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="リプレイファイルのインポート">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap"
+                               Text="リプレイファイルをこのウィンドウにドラッグアンドドロップ" VerticalAlignment="Top"/>
+                    <ListBox x:Name="ReplayFilesListBox" Margin="10,31,10,151"/>
+                    <Button x:Name="ImportButton"
+                            Content="インポート(_I)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"
+                            Width="120" Height="24" Click="ImportButtonClick"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,130" TextWrapping="NoWrap" 
+                               Text="出力" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="OutputBox"
+                             Margin="10,0,10,39" 
+                             TextWrapping="NoWrap" Text=""
+                             VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                             IsReadOnly="True" Height="86" VerticalAlignment="Bottom" AcceptsReturn="True"/>
                 </Grid>
             </TabItem>
             <TabItem Header="バックアップ">
