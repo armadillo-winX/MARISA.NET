@@ -62,5 +62,11 @@ namespace MARISA.NET
             long fileSize = fileInfo.Length;
             return $"{fileSize / 1024} KiB";
         }
+
+        public static string? GetGameId(string replayFile)
+        {
+            string replayName = Path.GetFileNameWithoutExtension(replayFile);
+            return replayName.Split('_')[0];
+        }
     }
 }
