@@ -231,6 +231,7 @@ namespace MARISA.NET
                     }
                 });
                 ImportButton.IsEnabled = true;
+                ViewReplayFilesList();
             }
             else
             {
