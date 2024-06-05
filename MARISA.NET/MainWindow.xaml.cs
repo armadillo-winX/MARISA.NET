@@ -125,10 +125,11 @@ namespace MARISA.NET
                     //--------------------------------------------------------------------
                     // ここに、ドラッグ＆ドロップ受付時の処理を記述する
                     //--------------------------------------------------------------------
+                    MainTabControl.SelectedIndex = 1;
+
                     foreach (string path in paths)
                     {
                         ReplayFilesListBox.Items.Add(path);
-                        MainTabControl.SelectedIndex = 1;
                     }
                 }
             };
