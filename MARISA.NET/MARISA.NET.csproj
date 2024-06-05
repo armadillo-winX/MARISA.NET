@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <Authors>Mashiro Tamane</Authors>
+    <Authors>珠音茉白/東方管制塔開発部</Authors>
     <Product>Multi Advanced Replay files Import and Sort Application</Product>
-    <Copyright>Copyright © 2024 Mashiro Tamane</Copyright>
+    <Copyright>Copyright © 2024 珠音茉白/東方管制塔開発部</Copyright>
 	<AssemblyVersion></AssemblyVersion>
     <FileVersion></FileVersion>
     <Version>$(VersionPrefix)$(VersionSuffix)</Version>
