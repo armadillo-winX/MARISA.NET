@@ -119,9 +119,8 @@ namespace MARISA.NET
             }
         }
 
-        public static void Rename(string replayFileName, string newReplayFileName)
+        public static void Rename(string gameId, string replayFileName, string newReplayFileName)
         {
-            string gameId = GetGameId(replayFileName);
             string replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
 
             if (replayFileName != newReplayFileName)
@@ -130,9 +129,8 @@ namespace MARISA.NET
             }
         }
 
-        public static bool Exists(string replayFileName)
+        public static bool Exists(string gameId, string replayFileName)
         {
-            string gameId = GetGameId(replayFileName);
             string replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
 
             return File.Exists($"{replayDirectory}\\{replayFileName}");
