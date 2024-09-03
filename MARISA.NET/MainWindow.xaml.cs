@@ -239,7 +239,7 @@ namespace MARISA.NET
             }
             else
             {
-                MessageBox.Show(this, "インポートするリプレイファイルがありません。", "リプレイファイルのインポート",
+                MessageBox.Show(this, "取り込むリプレイファイルがありません。", "リプレイファイルの取り込み",
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }

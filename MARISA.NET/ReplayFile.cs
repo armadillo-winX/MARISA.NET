@@ -115,7 +115,7 @@ namespace MARISA.NET
             }
             else
             {
-                return $"インポート先ディレクトリが存在しませんでした。Game:{gameId}";
+                return $"取り込み先ディレクトリが存在しませんでした。Game:{gameId}";
             }
         }
 
