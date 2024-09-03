@@ -259,7 +259,8 @@ namespace MARISA.NET
 
                 RenameDialog renameDialog = new()
                 {
-                    ReplayFileName = Path.GetFileNameWithoutExtension(replayFile)
+                    ReplayFileName = Path.GetFileNameWithoutExtension(replayFile),
+                    Owner = this
                 };
 
                 if (renameDialog.ShowDialog() == true)
