@@ -54,13 +54,13 @@
                             Width="120" Height="24" Click="ReloadButtonClick"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="リプレイファイルのインポート">
+            <TabItem Header="リプレイファイルの取り込み">
                 <Grid>
                     <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap"
-                               Text="リプレイファイルをこのウィンドウにドラッグアンドドロップ" VerticalAlignment="Top"/>
+                               Text="取り込みたいリプレイファイルをこのウィンドウにドラッグアンドドロップ" VerticalAlignment="Top"/>
                     <ListBox x:Name="ReplayFilesListBox" Margin="10,31,10,151"/>
                     <Button x:Name="ImportButton"
-                            Content="インポート(_I)" HorizontalAlignment="Center" Margin="0,0,0,122" VerticalAlignment="Bottom"
+                            Content="取り込む(_I)" HorizontalAlignment="Center" Margin="0,0,0,122" VerticalAlignment="Bottom"
                             Width="120" Height="24" Click="ImportButtonClick"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,0,0,101" TextWrapping="NoWrap" 
                                Text="出力" VerticalAlignment="Bottom"/>
