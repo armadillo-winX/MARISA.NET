@@ -267,17 +267,25 @@ namespace MARISA.NET
                 {
                     string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
 
-                    try
+                    if (!ReplayFile.Exists(newReplayFileName))
                     {
-                        ReplayFile.Rename(replayFileName, newReplayFileName);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(this, $"リプレイファイルのリネームに失敗しました。\n{ex.Message}", "エラー",
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                        try
+                        {
+                            ReplayFile.Rename(replayFileName, newReplayFileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(this, $"リプレイファイルのリネームに失敗しました。\n{ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
 
-                    ViewReplayFilesList();
+                        ViewReplayFilesList();
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, $"'{newReplayFileName}' は既に存在します。", "リプレイファイルのリネーム",
+                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
                 }
             }
         }
