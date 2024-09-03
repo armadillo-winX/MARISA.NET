@@ -129,5 +129,13 @@ namespace MARISA.NET
                 File.Move($"{replayDirectory}\\{replayFileName}", $"{replayDirectory}\\{newReplayFileName}");
             }
         }
+
+        public static bool Exists(string replayFileName)
+        {
+            string gameId = GetGameId(replayFileName);
+            string replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
+
+            return File.Exists($"{replayDirectory}\\{replayFileName}");
+        }
     }
 }
