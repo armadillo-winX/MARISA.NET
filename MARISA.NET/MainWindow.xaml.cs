@@ -255,11 +255,11 @@ namespace MARISA.NET
                 && ReplayFilesDataGrid.SelectedIndex >= 0)
             {
                 ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
-                string replayFile = selectedReplayFileInfo.FileName;
+                string replayFileName = selectedReplayFileInfo.FileName;
 
                 RenameDialog renameDialog = new()
                 {
-                    ReplayFileName = Path.GetFileNameWithoutExtension(replayFile),
+                    ReplayFileName = Path.GetFileNameWithoutExtension(replayFileName),
                     Owner = this
                 };
 
@@ -269,7 +269,7 @@ namespace MARISA.NET
 
                     try
                     {
-                        ReplayFile.Rename(replayFile, newReplayFileName);
+                        ReplayFile.Rename(replayFileName, newReplayFileName);
                     }
                     catch (Exception ex)
                     {
