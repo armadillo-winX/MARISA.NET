@@ -9,5 +9,7 @@
         public static string? ReplayDirectoryPathSettingsFile => $"{AppLocation}\\ReplayDirectoryPathSettings.xml";
 
         public static string? MainWindowSettingsFile => $"{AppLocation}\\MainWindowSettings.xml";
+
+        public static string? ReplayFileBackupDirectory => $"{AppLocation}\\backup\\";
     }
 }
