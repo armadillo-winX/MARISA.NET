@@ -11,7 +11,8 @@
         <TextBlock HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" Text=".rpy" VerticalAlignment="Top"/>
         <Button x:Name="RenameButton"
             Width="90" Height="24"
-            Content="リネーム(_R)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"/>
+            IsDefault="True"
+            Content="リネーム(_R)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="RenameButtonClick"/>
 
     </Grid>
 </Window>
