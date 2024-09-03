@@ -60,15 +60,15 @@
                                Text="リプレイファイルをこのウィンドウにドラッグアンドドロップ" VerticalAlignment="Top"/>
                     <ListBox x:Name="ReplayFilesListBox" Margin="10,31,10,151"/>
                     <Button x:Name="ImportButton"
-                            Content="インポート(_I)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"
+                            Content="インポート(_I)" HorizontalAlignment="Center" Margin="0,0,0,122" VerticalAlignment="Bottom"
                             Width="120" Height="24" Click="ImportButtonClick"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,130" TextWrapping="NoWrap" 
+                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,101" TextWrapping="NoWrap" 
                                Text="出力" VerticalAlignment="Bottom"/>
                     <TextBox x:Name="OutputBox"
-                             Margin="10,0,10,39" 
+                             Margin="10,0,10,10" 
                              TextWrapping="NoWrap" Text=""
                              VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
-                             IsReadOnly="True" Height="86" VerticalAlignment="Bottom" AcceptsReturn="True"/>
+                             IsReadOnly="True" AcceptsReturn="True" Height="86" VerticalAlignment="Bottom"/>
                 </Grid>
             </TabItem>
             <TabItem Header="バックアップ">
