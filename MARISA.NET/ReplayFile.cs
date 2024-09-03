@@ -119,12 +119,14 @@ namespace MARISA.NET
             }
         }
 
-        public static void Rename(string replayFilePath, string newReplayFileName)
+        public static void Rename(string replayFileName, string newReplayFileName)
         {
-            if (Path.GetFileName(replayFilePath) != newReplayFileName)
+            string gameId = GetGameId(replayFileName);
+            string replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
+
+            if (replayFileName != newReplayFileName)
             {
-                string replayDirectory = Path.GetDirectoryName(replayFilePath);
-                File.Move(replayFilePath, $"{replayDirectory}\\{newReplayFileName}");
+                File.Move($"{replayDirectory}\\{replayFileName}", $"{replayDirectory}\\{newReplayFileName}");
             }
         }
     }
