@@ -248,5 +248,25 @@ namespace MARISA.NET
         {
             ViewReplayFilesList();
         }
+
+        private void RenameButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0
+                && ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFile = selectedReplayFileInfo.FileName;
+
+                RenameDialog renameDialog = new()
+                {
+                    ReplayFileName = Path.GetFileNameWithoutExtension(replayFile)
+                };
+
+                if (renameDialog.ShowDialog() == true)
+                {
+                    string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
+                }
+            }
+        }
     }
 }
