@@ -48,7 +48,7 @@
                             Width="120" Height="24" Click="RenameButtonClick"/>
                     <Button x:Name="DeleteButton"
                             Content="削除(_D)" HorizontalAlignment="Right" Margin="0,39,10,0" VerticalAlignment="Top"
-                            Width="120" Height="24"/>
+                            Width="120" Height="24" Click="DeleteButtonClick"/>
                     <Button x:Name="ReloadButton"
                             Content="再読み込み" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top"
                             Width="120" Height="24" Click="ReloadButtonClick"/>
