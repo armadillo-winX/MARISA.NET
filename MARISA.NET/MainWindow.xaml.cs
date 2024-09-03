@@ -267,11 +267,11 @@ namespace MARISA.NET
                 {
                     string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
 
-                    if (!ReplayFile.Exists(newReplayFileName))
+                    if (!ReplayFile.Exists(this.GameId, newReplayFileName))
                     {
                         try
                         {
-                            ReplayFile.Rename(replayFileName, newReplayFileName);
+                            ReplayFile.Rename(this.GameId, replayFileName, newReplayFileName);
                         }
                         catch (Exception ex)
                         {
