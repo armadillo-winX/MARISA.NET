@@ -263,13 +263,15 @@ namespace MARISA.NET
                     Owner = this
                 };
 
+                string replayFile = $"{ReplayDirectoryPathBox.Text}\\{replayFileName}";
+
                 if (renameDialog.ShowDialog() == true)
                 {
                     string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
 
                     try
                     {
-                        ReplayFile.Rename(replayFileName, newReplayFileName);
+                        ReplayFile.Rename(replayFile, newReplayFileName);
                     }
                     catch (Exception ex)
                     {
