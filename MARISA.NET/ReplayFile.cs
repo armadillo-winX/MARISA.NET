@@ -118,5 +118,14 @@ namespace MARISA.NET
                 return $"インポート先ディレクトリが存在しませんでした。Game:{gameId}";
             }
         }
+
+        public static void Rename(string replayFilePath, string newReplayFileName)
+        {
+            if (Path.GetFileName(replayFilePath) != newReplayFileName)
+            {
+                string replayDirectory = Path.GetDirectoryName(replayFilePath);
+                File.Move(replayFilePath, $"{replayDirectory}\\{newReplayFileName}");
+            }
+        }
     }
 }
