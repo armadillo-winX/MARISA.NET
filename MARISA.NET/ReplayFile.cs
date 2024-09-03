@@ -137,5 +137,11 @@ namespace MARISA.NET
 
             return File.Exists($"{replayDirectory}\\{replayFileName}");
         }
+
+        public static void Delete(string gameId, string replayFileName)
+        {
+            string replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
+            File.Delete($"{replayDirectory}\\{replayFileName}");
+        }
     }
 }
