@@ -39,5 +39,10 @@
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            _ = FileNameBox.Focus();
+        }
     }
 }
