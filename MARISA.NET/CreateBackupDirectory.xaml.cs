@@ -38,8 +38,24 @@
                     string commnet = CommentBox.Text;
                     if (backupName.Length > 0 && CheckFileName(backupName))
                     {
-                        ReplayFile.CreateBackup(
+                        if (!ReplayFile.BackupExists(this.GameId, backupName))
+                        {
+                            ReplayFile.CreateBackup(
                             this.GameId, this.ReplayFilePath, backupName, commnet);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBoxResult result =
+                                MessageBox.Show(this, $"'{backupName}' は既に存在します。\n上書きしますか?",
+                                "バックアップの作成", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                ReplayFile.CreateBackup(
+                                this.GameId, this.ReplayFilePath, backupName, commnet);
+                                this.Close();
+                            }
+                        }
                     }
                     else if (backupName.Length == 0)
                     {
