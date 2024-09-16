@@ -3,13 +3,13 @@
     /// <summary>
     /// CreateBackupDirectory.xaml の相互作用ロジック
     /// </summary>
-    public partial class CreateBackupDirectory : Window
+    public partial class CreateBackupDialog : Window
     {
         public string? GameId { get; set; }
 
         public string? ReplayFilePath { get; set; }
 
-        public CreateBackupDirectory()
+        public CreateBackupDialog()
         {
             InitializeComponent();
         }

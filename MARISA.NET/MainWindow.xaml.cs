@@ -317,5 +317,26 @@ namespace MARISA.NET
                 }
             }
         }
+
+        private void BackupButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0
+                && ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFileName = selectedReplayFileInfo.FileName;
+
+                string replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(this.GameId);
+
+                string replayFilePath = $"{replayDirectory}\\{replayFileName}";
+
+                CreateBackupDialog createBackupDialog = new()
+                {
+                    GameId = this.GameId,
+                    ReplayFilePath = replayFilePath
+                };
+                createBackupDialog.ShowDialog();
+            }
+        }
     }
 }
