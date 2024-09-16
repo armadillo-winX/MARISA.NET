@@ -160,6 +160,11 @@ namespace MARISA.NET
         {
             string backupInformationFilePath = $"{PathInfo.ReplayFileBackupDirectory}\\{gameId}\\{backupName}.mbakinfo";
 
+            if (File.Exists(backupInformationFilePath))
+            {
+                File.Delete(backupInformationFilePath);
+            }
+
             XmlDocument backupInformationXml = new();
             XmlNode docNode = backupInformationXml.CreateXmlDeclaration("1.0", "UTF-8", null);
             _ = backupInformationXml.AppendChild(docNode);
