@@ -181,5 +181,11 @@ namespace MARISA.NET
 
             backupInformationXml.Save(backupInformationFilePath);
         }
+
+        public static bool BackupExists(string gameId, string backupName)
+        {
+            string backupFile = $"{PathInfo.ReplayFileBackupDirectory}\\{gameId}\\{backupName}.marbak";
+            return File.Exists(backupFile);
+        }
     }
 }
