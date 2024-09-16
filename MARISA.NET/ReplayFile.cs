@@ -151,7 +151,7 @@ namespace MARISA.NET
                 Directory.CreateDirectory(backupDirectory);
             }
 
-            File.Copy(replayFilePath, $"{backupDirectory}\\{backupName}.rpy", true);
+            File.Copy(replayFilePath, $"{backupDirectory}\\{backupName}.marbak", true);
             CreateBackupInformationFile(gameId, replayFilePath, backupName, comment);
         }
 
