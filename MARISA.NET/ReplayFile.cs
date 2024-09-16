@@ -26,7 +26,7 @@ namespace MARISA.NET
 
         public static ObservableCollection<ReplayFileInfo> GetReplayFiles(string? gameId)
         {
-            ObservableCollection<ReplayFileInfo> replayFileInfos = new();
+            ObservableCollection<ReplayFileInfo> replayFileInfos = [];
 
             string? replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
             if (!string.IsNullOrWhiteSpace(replayDirectory))
@@ -77,7 +77,7 @@ namespace MARISA.NET
 
         private static string GetReplayFileSize(string replayFilePath)
         {
-            FileInfo fileInfo = new FileInfo(replayFilePath);
+            FileInfo fileInfo = new(replayFilePath);
             long fileSize = fileInfo.Length;
             return $"{fileSize / 1024} KiB";
         }
