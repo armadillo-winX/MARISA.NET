@@ -177,11 +177,11 @@ namespace MARISA.NET
             _ = rootNode.AppendChild(gameIdNode);
 
             XmlNode sourceFileNode = backupInformationXml.CreateElement("SourceFilePath");
-            _ = sourceFileNode.AppendChild(backupInformationXml.CreateElement(replayFilePath));
+            _ = sourceFileNode.AppendChild(backupInformationXml.CreateTextNode(replayFilePath));
             _ = rootNode.AppendChild(sourceFileNode);
 
             XmlNode commentNode = backupInformationXml.CreateElement("Comment");
-            _ = commentNode.AppendChild(backupInformationXml.CreateElement(comment));
+            _ = commentNode.AppendChild(backupInformationXml.CreateTextNode(comment));
             _ = rootNode.AppendChild(commentNode);
 
             backupInformationXml.Save(backupInformationFilePath);
