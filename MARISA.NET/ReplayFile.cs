@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Xml;
 
 namespace MARISA.NET
 {
@@ -140,6 +141,45 @@ namespace MARISA.NET
         {
             string replayDirectory = ReplayDirectoryPath.GetReplayDirectoryPath(gameId);
             File.Delete($"{replayDirectory}\\{replayFileName}");
+        }
+
+        public static void CreateBackup(string gameId, string replayFilePath, string backupName, string comment)
+        {
+            string backupDirectory = $"{PathInfo.ReplayFileBackupDirectory}\\{gameId}";
+            if (!Directory.Exists(backupDirectory))
+            {
+                Directory.CreateDirectory(backupDirectory);
+            }
+
+            File.Copy(replayFilePath, $"{backupDirectory}\\{backupName}.rpy", true);
+            CreateBackupInformationFile(gameId, replayFilePath, backupName, comment);
+        }
+
+        public static void CreateBackupInformationFile(
+            string gameId, string replayFilePath, string backupName, string comment)
+        {
+            string backupInformationFilePath = $"{PathInfo.ReplayFileBackupDirectory}\\{gameId}\\{backupName}.mbakinfo";
+
+            XmlDocument backupInformationXml = new();
+            XmlNode docNode = backupInformationXml.CreateXmlDeclaration("1.0", "UTF-8", null);
+            _ = backupInformationXml.AppendChild(docNode);
+
+            XmlNode rootNode = backupInformationXml.CreateElement("ReplayBackupInformation");
+            _ = backupInformationXml.AppendChild(rootNode);
+
+            XmlNode gameIdNode = backupInformationXml.CreateElement("GameId");
+            _ = gameIdNode.AppendChild(backupInformationXml.CreateTextNode(gameId));
+            _ = rootNode.AppendChild(gameIdNode);
+
+            XmlNode sourceFileNode = backupInformationXml.CreateElement("SourceFilePath");
+            _ = sourceFileNode.AppendChild(backupInformationXml.CreateElement(replayFilePath));
+            _ = rootNode.AppendChild(sourceFileNode);
+
+            XmlNode commentNode = backupInformationXml.CreateElement("Comment");
+            _ = commentNode.AppendChild(backupInformationXml.CreateElement(comment));
+            _ = rootNode.AppendChild(commentNode);
+
+            backupInformationXml.Save(backupInformationFilePath);
         }
     }
 }
