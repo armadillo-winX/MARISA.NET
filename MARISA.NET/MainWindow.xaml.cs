@@ -332,6 +332,7 @@ namespace MARISA.NET
 
                 CreateBackupDialog createBackupDialog = new()
                 {
+                    Owner = this,
                     GameId = this.GameId,
                     ReplayFilePath = replayFilePath
                 };
