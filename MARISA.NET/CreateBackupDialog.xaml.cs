@@ -5,7 +5,7 @@
     /// </summary>
     public partial class CreateBackupDialog : Window
     {
-        private string? _replayFIlePath;
+        private string? _replayFilePath;
 
         public string? GameId { get; set; }
 
@@ -13,12 +13,12 @@
         {
             get
             {
-                return _replayFIlePath;
+                return _replayFilePath;
             }
 
             set
             {
-                _replayFIlePath = value;
+                _replayFilePath = value;
                 if (!string.IsNullOrEmpty(value))
                 {
                     BackupNameBox.Text =
