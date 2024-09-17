@@ -3,7 +3,9 @@ global using System.IO;
 global using System.Windows;
 
 using Microsoft.Win32;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace MARISA.NET
