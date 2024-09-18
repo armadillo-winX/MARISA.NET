@@ -159,6 +159,28 @@ namespace MARISA.NET
             SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
         }
 
+        private void GetBackupFiles(string? gameId)
+        {
+            BackupListBox.Items.Clear();
+            if (!string.IsNullOrEmpty(gameId))
+            {
+                try
+                {
+                    string[] backupFiles = ReplayFile.GetBackupFiles(gameId);
+                    foreach (string backupFile in backupFiles)
+                    {
+                        string bacupFileName = Path.GetFileNameWithoutExtension(backupFile);
+                        BackupListBox.Items.Add(bacupFileName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"バックアップの取得に失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void BrowseButtonClick(object sender, RoutedEventArgs e)
         {
             OpenFolderDialog openFolderDialog = new();
