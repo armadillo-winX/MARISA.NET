@@ -82,7 +82,21 @@
                 </Grid>
             </TabItem>
             <TabItem Header="バックアップ">
-                <Grid />
+                <Grid >
+                    <ListBox
+                        x:Name="BackupGameListBox"
+                        Margin="10,10,0,10" HorizontalAlignment="Left" Width="166" />
+                    <Label Content="バックアップの一覧" HorizontalAlignment="Left" Margin="181,10,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="BackupListBox" Margin="181,41,10,39"/>
+                    <Button
+                        x:Name="RestoreBackupButton"
+                        Width="90" Height="24"
+                        Content="復元(_R)" HorizontalAlignment="Right" Margin="0,0,105,10" VerticalAlignment="Bottom"/>
+                    <Button
+                        x:Name="DeleteBackupButton"
+                        Width="90" Height="24"
+                        Content="削除" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"/>
+                </Grid>
             </TabItem>
             <TabItem Header="バージョン情報">
                 <Grid>
