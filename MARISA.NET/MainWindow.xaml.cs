@@ -159,6 +159,32 @@ namespace MARISA.NET
             SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
         }
 
+        private void SetBackupGameListBox()
+        {
+            BackupGameListBox.Items.Clear();
+            BackupListBox.Items.Clear();
+
+            if (Directory.Exists(PathInfo.ReplayFileBackupDirectory))
+            {
+                string[] backupDirectories
+                    = Directory.GetDirectories(
+                        PathInfo.ReplayFileBackupDirectory, "*", SearchOption.TopDirectoryOnly);
+
+                foreach (string backupDirectory in backupDirectories)
+                {
+                    string directoryName = Path.GetFileName(backupDirectory);
+
+                    ListBoxItem item = new()
+                    {
+                        Content = GameIndex.GetGameName(directoryName),
+                        Uid = directoryName
+                    };
+
+                    BackupGameListBox.Items.Add(item);
+                }
+            }
+        }
+
         private void BrowseButtonClick(object sender, RoutedEventArgs e)
         {
             OpenFolderDialog openFolderDialog = new();
