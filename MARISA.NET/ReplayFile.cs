@@ -197,7 +197,14 @@ namespace MARISA.NET
         public static string[] GetBackupFiles(string gameId)
         {
             string backupDirectory = $"{PathInfo.ReplayFileBackupDirectory}\\{gameId}";
-            return Directory.GetFiles(backupDirectory, "*.marbak", SearchOption.TopDirectoryOnly);
+            if (Directory.Exists(backupDirectory)) 
+            {
+                return Directory.GetFiles(backupDirectory, "*.marbak", SearchOption.TopDirectoryOnly);
+            }
+            else
+            {
+                return [];
+            }
         }
     }
 }
