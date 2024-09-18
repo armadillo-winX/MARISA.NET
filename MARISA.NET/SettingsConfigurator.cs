@@ -107,7 +107,7 @@ namespace MARISA.NET
             }
             else
             {
-                mainWindowSettings.SelectedGameId = GameIndex.Th06;
+                mainWindowSettings.SelectedGameId = "Th06";
                 mainWindowSettings.Width = 600;
                 mainWindowSettings.Height = 400;
             }
