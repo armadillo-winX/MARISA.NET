@@ -27,6 +27,7 @@ namespace MARISA.NET
             set
             {
                 _gameId = value;
+                GetBackupFiles(value);
             }
         }
 
