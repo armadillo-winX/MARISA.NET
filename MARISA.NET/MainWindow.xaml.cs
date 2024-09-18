@@ -367,5 +367,14 @@ namespace MARISA.NET
                 createBackupDialog.ShowDialog();
             }
         }
+
+        private void BackupGameListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (BackupGameListBox.SelectedIndex  >= 0)
+            {
+                ListBoxItem selectedItem = BackupGameListBox.SelectedItem as ListBoxItem;
+                string gameId = selectedItem.Uid;
+            }
+        }
     }
 }

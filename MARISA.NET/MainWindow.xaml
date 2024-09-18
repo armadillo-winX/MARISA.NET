@@ -85,7 +85,7 @@
                 <Grid >
                     <ListBox
                         x:Name="BackupGameListBox"
-                        Margin="10,10,0,10" HorizontalAlignment="Left" Width="166" />
+                        Margin="10,10,0,10" HorizontalAlignment="Left" Width="166" SelectionChanged="BackupGameListBoxSelectionChanged" />
                     <Label Content="バックアップの一覧" HorizontalAlignment="Left" Margin="181,10,0,0" VerticalAlignment="Top"/>
                     <ListBox x:Name="BackupListBox" Margin="181,41,10,39"/>
                     <Button
