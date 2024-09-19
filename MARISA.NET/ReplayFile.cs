@@ -206,5 +206,21 @@ namespace MARISA.NET
                 return [];
             }
         }
+
+        public static string GetBackupFileComment(string gameId, string backupName)
+        {
+            string backupInformationFilePath
+                = $"{PathInfo.ReplayFileBackupDirectory}\\{gameId}\\{backupName}.mbakinfo";
+            if (File.Exists(backupInformationFilePath))
+            {
+                XmlDocument replayBackupInfoXml = new();
+                replayBackupInfoXml.Load(backupInformationFilePath);
+                return replayBackupInfoXml.DocumentElement.SelectSingleNode("Comment").InnerText;
+            }
+            else
+            {
+                return "バックアップの情報が存在しませんでした。";
+            }
+        }
     }
 }
