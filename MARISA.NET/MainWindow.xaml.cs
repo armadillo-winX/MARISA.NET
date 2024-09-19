@@ -163,6 +163,7 @@ namespace MARISA.NET
         private void GetBackupFiles(string? gameId)
         {
             BackupListBox.Items.Clear();
+            CommentBox.Clear();
             if (!string.IsNullOrEmpty(gameId))
             {
                 try
