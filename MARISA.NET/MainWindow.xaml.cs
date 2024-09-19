@@ -364,5 +364,24 @@ namespace MARISA.NET
                 createBackupDialog.ShowDialog();
             }
         }
+
+        private void BackupListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (BackupListBox.Items.Count > 0 &&
+                BackupListBox.SelectedIndex >= 0)
+            {
+                string backupName = BackupListBox.SelectedItem as string;
+                try
+                {
+                    string comment
+                    = ReplayFile.GetBackupFileComment(this.GameId, backupName);
+                    CommentBox.Text = comment;
+                }
+                catch (Exception ex)
+                {
+                    CommentBox.Text = $"エラー\nバックアップに付けられたコメントを読み込めませんでした。\n{ex.Message}";
+                }
+            } 
+        }
     }
 }
