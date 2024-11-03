@@ -5,6 +5,7 @@ global using System.Windows;
 using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -383,6 +384,19 @@ namespace MARISA.NET
                     CommentBox.Text = $"エラー\nバックアップに付けられたコメントを読み込めませんでした。\n{ex.Message}";
                 }
             } 
+        }
+
+        private void OpenBackupDirectoryButtonClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Process.Start("explorer.exe", PathInfo.ReplayFileBackupDirectory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

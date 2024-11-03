@@ -97,6 +97,10 @@
                         IsReadOnly="True"
                         HorizontalAlignment="Right" Margin="0,40,10,39" TextWrapping="Wrap" Text="" Width="216"/>
                     <Label Content="コメント" HorizontalAlignment="Right" Margin="0,10,182,0" VerticalAlignment="Top"/>
+                    <Button
+                        x:Name="OpenBackupDirectoryButton"
+                        Height="24"
+                        Content="バックアップフォルダを開く(_O)" HorizontalAlignment="Right" Margin="0,0,421,10" VerticalAlignment="Bottom" Width="163" Click="OpenBackupDirectoryButtonClick"/>
                 </Grid>
             </TabItem>
             <TabItem Header="バージョン情報">
