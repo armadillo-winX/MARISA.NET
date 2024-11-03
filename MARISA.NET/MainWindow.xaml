@@ -86,6 +86,10 @@
                     <Label Content="バックアップの一覧" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                     <ListBox x:Name="BackupListBox" Margin="10,41,231,39" SelectionChanged="BackupListBoxSelectionChanged"/>
                     <Button
+                        x:Name="RestoreBackupButton"
+                        Width="90" Height="24"
+                        Content="復元(_R)" HorizontalAlignment="Right" Margin="0,0,326,10" VerticalAlignment="Bottom"/>
+                    <Button
                         x:Name="DeleteBackupButton"
                         Width="90" Height="24"
                         Content="削除" HorizontalAlignment="Right" Margin="0,0,231,10" VerticalAlignment="Bottom"/>
@@ -96,7 +100,7 @@
                     <Button
                         x:Name="OpenBackupDirectoryButton"
                         Height="24"
-                        Content="バックアップフォルダを開く(_O)" HorizontalAlignment="Right" Margin="0,0,326,10" VerticalAlignment="Bottom" Width="163" Click="OpenBackupDirectoryButtonClick"/>
+                        Content="バックアップフォルダを開く(_O)" HorizontalAlignment="Right" Margin="0,0,421,10" VerticalAlignment="Bottom" Width="163" Click="OpenBackupDirectoryButtonClick"/>
                 </Grid>
             </TabItem>
             <TabItem Header="バージョン情報">
